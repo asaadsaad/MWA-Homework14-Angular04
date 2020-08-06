@@ -1,9 +1,12 @@
 # MWA - Homework 14 - Angular 04
 ## Coding Exercise
-* Create a Data-Driven sign-up and sign-in forms with an async validation that emails are alwayas unique.
-* Create a Restful API using `express`, after sign-up or sign-in, the backend API will generate a JWT and send it to your Angular app (to be saved in the `localStorage`). Password must be encrypted (use `bcrypt` and `jsonwebtoken`)
-* Create a backend route to `/api/protected` and write a middleware to verify and allow tokenized requests only to pass through. The route will send back a secret JSON object as a response.
-* Create a frontend route to `/client/protected`, this component will try to fetch data from `/api/protected/, make sure to intercept all requests and attach the JWT in the request header, so the backend API will approve the request, your frontend route should be protected with a Guard to allow users with a valid JWT to pass through and see the secret JSON.
+### Backend Application (Express)
+* Create a Restful API for `POST /login` and `POST /signup`, after sign-up or sign-in, the backend API will generate a JWT and send it to your Angular app. Password must be encrypted (use `bcrypt` and `jsonwebtoken` packages)
+* Create another route `GET /api/protected` and write a middleware to verify and allow tokenized requests to pass through. The route will send back a JSON object as a response.
+  
+### Frontend Application (Angular)
+* Create a Data-Driven sign-up and sign-in forms with an async validator that checks if emails are unique.
+* Create Angular route `/protected` that displays `protectedComponent`, this component will fetch data from `GET /api/protected/`, make sure all requests have the JWT in the request header, so the backend API will approve the request, your frontend route should be protected with a Guard so only logged in users can access `protectedComponent`.
 
 
 
